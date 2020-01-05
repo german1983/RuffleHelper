@@ -96,15 +96,12 @@ module.exports = {
     },
     extensions: [".ts", ".tsx", ".js", ".json"],
   },
-  plugins: [new HtmlWebpackPlugin({
-    hash: true,
-    title: "Ruffle Helper",
-    favicon: path.join(__dirname, "/public/favicon.ico"),
-    template: path.join(__dirname, "/public/index.html"),
-  }),
-  // new ManifestPlugin(),
-  new BundleAnalyzerPlugin({
-    openAnalyzer: false,
-    analyzerPort: 4000,
-  })],
+  plugins: [
+    new HtmlWebpackPlugin({
+      hash: true,
+      title: "Ruffle Helper",
+      favicon: path.join(__dirname, "/public/favicon.ico"),
+      template: path.join(__dirname, "/public/index.html"),
+    }),
+  ],
 };
