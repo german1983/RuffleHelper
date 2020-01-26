@@ -1,10 +1,14 @@
-import configureStore from 'redux-mock-store';
+import createMockStore from 'redux-mock-store';
 import { languages } from '../../../components/common/Constants';
 import switchLanguage from '../actions';
 import { ApplicationState } from '../..';
+import thunk, { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
-const middleware = [];
-const mockStore = configureStore<Partial<ApplicationState>>(middleware);
+type DispatchExts = ThunkDispatch<ApplicationState, void, AnyAction>;
+
+const middleware = [thunk];
+const mockStore = createMockStore<Partial<ApplicationState>, DispatchExts>(middleware);
 
 let store = mockStore();
 
