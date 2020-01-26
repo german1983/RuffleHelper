@@ -1,9 +1,18 @@
 {
   "main.js": "main.bundle.js",
+  "material-ui.js": "material-ui.bundle.js",
+  "react.js": "react.bundle.js",
+  "vendors.js": "vendors.bundle.js",
   "../app/dist/index.d.ts": "../app/dist/index.d.ts",
   "../app/dist/index.d.ts.map": "../app/dist/index.d.ts.map",
   "../app/dist/main.d.ts": "../app/dist/main.d.ts",
   "../app/dist/main.d.ts.map": "../app/dist/main.d.ts.map",
+  "assets/fonts/rafflesli.woff": "assets/fonts/rafflesli.woff",
+  "assets/fonts/rafflesli.woff2": "assets/fonts/rafflesli.woff2",
+  "assets/fonts/raffleslibol.woff": "assets/fonts/raffleslibol.woff",
+  "assets/fonts/raffleslibol.woff2": "assets/fonts/raffleslibol.woff2",
+  "assets/fonts/raffleslim_black.woff": "assets/fonts/raffleslim_black.woff",
+  "assets/fonts/raffleslim_black.woff2": "assets/fonts/raffleslim_black.woff2",
   "favicon.ico": "favicon.ico",
   "index.html": "index.html"
 }

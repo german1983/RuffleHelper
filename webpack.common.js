@@ -17,39 +17,39 @@ module.exports = {
   optimization: {
     usedExports: true,
     sideEffects: false,
-    // splitChunks: {
-    //   automaticNameDelimiter: ".",
-    //   chunks: "all",
-    //   cacheGroups: {
-    //     materialUiVendor: {
-    //       test(module) {
-    //         const regex = /[\\/](node_modules)[\\/]((@)?material-ui).*$/gi;
-    //         return regex.test(module.context);
-    //       },
-    //       name: "material-ui",
-    //       priority: 5,
-    //       enforce: true,
-    //     },
-    //     reactVendor: {
-    //       test(module) {
-    //         const regex = /[\\/](node_modules)[\\/]((@)?react).*$/gi;
-    //         return regex.test(module.context);
-    //       },
-    //       name: "react",
-    //       priority: 10,
-    //       enforce: true,
-    //     },
-    //     vendors: {
-    //       test(module) {
-    //         const regex = /[\\/](node_modules)[\\/](?!(@)?material-ui|(@)?react).*$/gi;
-    //         return regex.test(module.context);
-    //       },
-    //       name: "vendors",
-    //       priority: 15,
-    //       enforce: true,
-    //     }
-    //   }
-    // }
+    splitChunks: {
+      automaticNameDelimiter: ".",
+      chunks: "all",
+      cacheGroups: {
+        materialUiVendor: {
+          test(module) {
+            const regex = /[\\/](node_modules)[\\/]((@)?material-ui).*$/gi;
+            return regex.test(module.context);
+          },
+          name: "material-ui",
+          priority: 5,
+          enforce: true,
+        },
+        reactVendor: {
+          test(module) {
+            const regex = /[\\/](node_modules)[\\/]((@)?react).*$/gi;
+            return regex.test(module.context);
+          },
+          name: "react",
+          priority: 10,
+          enforce: true,
+        },
+        vendors: {
+          test(module) {
+            const regex = /[\\/](node_modules)[\\/](?!(@)?material-ui|(@)?react).*$/gi;
+            return regex.test(module.context);
+          },
+          name: "vendors",
+          priority: 15,
+          enforce: true,
+        }
+      }
+    }
   },
   module: {
     rules: [

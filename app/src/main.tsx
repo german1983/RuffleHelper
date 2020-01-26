@@ -1,13 +1,17 @@
 import axios from 'axios';
 
 import * as React from 'react';
-import { connect } from 'react-redux';
+import { connect, Provider } from 'react-redux';
 
 import { Store } from 'redux';
 import { ApplicationState } from './store';
 
-import { DialogContent, DialogContentText, Dialog, CircularProgress } from '@material-ui/core';
+import { DialogContent, DialogContentText, Dialog, CircularProgress, ThemeProvider, CssBaseline, Container } from '@material-ui/core';
 import { languages } from './components/common/Constants';
+
+// Application Theme
+import MainTheme from './styles/theme';
+import './styles/main.scss';
 
 // Any additional component props go here.
 interface MainProps {
@@ -58,9 +62,16 @@ class Main extends React.Component<MainProps, MainState> {
     console.log("Hey!!");
     return (
       <>
-        Aca estamos
-        <div>{JSON.stringify(config)}</div>
-        <div>{lang}</div>
+        <CssBaseline />
+        <ThemeProvider theme={MainTheme}>
+          <Provider store={store}>
+            <Container fixed>
+              Aca estamos
+              <div>{JSON.stringify(config)}</div>
+              <div>{lang}</div>
+            </Container>
+          </Provider>
+        </ThemeProvider>
       </>
     )
   }

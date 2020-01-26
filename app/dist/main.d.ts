@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Store } from 'redux';
 import { ApplicationState } from './store';
 import { languages } from './components/common/Constants';
+import './styles/main.scss';
 interface MainProps {
     lang: languages;
     store: Store<ApplicationState>;
