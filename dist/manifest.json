@@ -3,6 +3,7 @@
   "material-ui.js": "material-ui.bundle.js",
   "react.js": "react.bundle.js",
   "vendors.js": "vendors.bundle.js",
+  "assets/fonts/rafflesli.woff": "assets/fonts/rafflesli.woff",
   "assets/fonts/rafflesli.woff2": "assets/fonts/rafflesli.woff2",
   "assets/fonts/raffleslibol.woff": "assets/fonts/raffleslibol.woff",
   "assets/fonts/raffleslibol.woff2": "assets/fonts/raffleslibol.woff2",
