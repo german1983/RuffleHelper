@@ -1,9 +1,22 @@
 import * as React from 'react';
-declare class Main extends React.Component {
-    constructor(props: any);
-    render(): React.DetailedReactHTMLElement<{
-        onClick: () => void;
-    }, HTMLElement>;
+import { Store } from 'redux';
+import { ApplicationState } from './store';
+import { languages } from './components/common/Constants';
+interface MainProps {
+    lang: languages;
+    store: Store<ApplicationState>;
 }
-export default Main;
+interface MainState {
+    config: {
+        webApiUrl: string;
+    } | null;
+}
+declare class Main extends React.Component<MainProps, MainState> {
+    constructor(props: MainProps);
+    componentDidMount(): void;
+    fetchConfig: () => Promise<any>;
+    render(): JSX.Element;
+}
+declare const _default: import("react-redux").ConnectedComponent<typeof Main, Pick<MainProps, "store">>;
+export default _default;
 //# sourceMappingURL=main.d.ts.map

@@ -1,69 +1,77 @@
+import axios from 'axios';
+
 import * as React from 'react';
-// import {Provider, connect} from 'react-redux';
-// import {Store} from 'redux';
-// import Container from '@material-ui/core/Container';
-// import CssBaseline from '@material-ui/core/CssBaseline';
-// import {ThemeProvider} from '@material-ui/core/styles';
-// import {IntlProvider} from 'react-intl';
-// import {translations} from 'src/translations/test-hub';
+import { connect } from 'react-redux';
 
-// import ConnectedApp from 'src/components/App';
-// import {ApplicationState} from 'src/store/';
+import { Store } from 'redux';
+import { ApplicationState } from './store';
 
-// // Bell Test Hub theme
-// import MainTheme from 'src/styles/theme';
-// // Generic style overrides, if required
-// import 'src/styles/main.scss';
-// import {languages} from 'src/components/common/Constants';
+import { DialogContent, DialogContentText, Dialog, CircularProgress } from '@material-ui/core';
+import { languages } from './components/common/Constants';
 
-// // Any additional component props go here.
-// interface MainProps {
-//   store: Store<ApplicationState>;
-//   lang: languages;
-// }
-// // Create an intersection type of the component props and our Redux props.
-// const Main: React.FC<MainProps> = ({store, lang}: MainProps) => {
-//   const messages = translations[lang];
+// Any additional component props go here.
+interface MainProps {
+  lang: languages;
+  store: Store<ApplicationState>;
+}
+interface MainState {
+  config: {
+    webApiUrl: string;
+  } | null;
+}
 
-//   return (
-//     <IntlProvider locale={lang} messages={messages}>
-//       <>
-//         <CssBaseline />
-//         <ThemeProvider theme={MainTheme}>
-//           <Provider store={store}>
-//             <Container fixed>
-//               <ConnectedApp />
-//             </Container>
-//           </Provider>
-//         </ThemeProvider>
-//       </>
-//     </IntlProvider>
-//   );
-// };
-const e = React.createElement;
-
-class Main extends React.Component {
-  constructor(props: any) {
+class Main extends React.Component<MainProps, MainState> {
+  constructor(props: MainProps) {
     super(props);
-    this.state = { liked: false };
+    this.state = { config: null };
   }
 
+  componentDidMount() {
+    this.fetchConfig().then((data) => {
+      this.setState({config: data});
+    });
+  }
+
+  fetchConfig = () => {
+    return axios.get('/manifest.json').then((response) => {
+      return response.data;
+    });
+  };
+
   render() {
-    return e(
-      'button',
-      { onClick: () => this.setState({ liked: true }) },
-      'Like'
-    );
+    const { config } = this.state;
+    if (!config) {
+      return (
+        <>
+          <Dialog open>
+            <DialogContent>
+              <DialogContentText>
+                Loading configuration file...
+              </DialogContentText>
+              <CircularProgress size="60" thickness={4} />
+            </DialogContent>
+          </Dialog>
+        </>
+      );
+    }
+    const {store, lang} = this.props;
+    console.log("Hey!!");
+    return (
+      <>
+        Aca estamos
+        <div>{JSON.stringify(config)}</div>
+        <div>{lang}</div>
+      </>
+    )
   }
 }
 
-// type StateToProps = {
-//   lang: languages;
-// };
+type StateToProps = {
+  lang: languages;
+};
 
-// const mapStateToProps = (state: ApplicationState): StateToProps => ({
-//   lang: state.lang
-// });
+const mapStateToProps = (state: ApplicationState): StateToProps => ({
+  lang: state.lang
+});
 
-// export default connect(mapStateToProps)(Main);
-export default Main;
+export default connect(mapStateToProps)(Main);

@@ -1,7 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-// const ManifestPlugin = require("webpack-manifest-plugin");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const ManifestPlugin = require("webpack-manifest-plugin");
 
 module.exports = {
   entry: {
@@ -103,5 +102,6 @@ module.exports = {
       favicon: path.join(__dirname, "/public/favicon.ico"),
       template: path.join(__dirname, "/public/index.html"),
     }),
+    new ManifestPlugin(),
   ],
 };

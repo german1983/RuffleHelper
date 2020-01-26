@@ -1,0 +1,1 @@
+{"version":3,"file":"reducer.d.ts","sourceRoot":"","sources":["../../../src/store/lang/reducer.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,OAAO,EAAC,MAAM,OAAO,CAAC;AAC9B,OAAO,EAAE,SAAS,EAAE,MAAM,mCAAmC,CAAC;AAI9D,eAAO,MAAM,YAAY,EAAE,SAA6B,CAAC;AAEzD,QAAA,MAAM,OAAO,EAAE,OAAO,CAAC,SAAS,CAS/B,CAAC;AAIF,OAAO,EAAC,OAAO,IAAI,WAAW,EAAC,CAAC"}

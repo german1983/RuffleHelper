@@ -1,0 +1,9 @@
+{
+  "main.js": "main.bundle.js",
+  "../app/dist/index.d.ts": "../app/dist/index.d.ts",
+  "../app/dist/index.d.ts.map": "../app/dist/index.d.ts.map",
+  "../app/dist/main.d.ts": "../app/dist/main.d.ts",
+  "../app/dist/main.d.ts.map": "../app/dist/main.d.ts.map",
+  "favicon.ico": "favicon.ico",
+  "index.html": "index.html"
+}
