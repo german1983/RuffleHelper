@@ -98,7 +98,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       hash: true,
-      title: "Ruffle Helper",
+      title: "CHAD Alerts System",
       favicon: path.join(__dirname, "/public/favicon.ico"),
       template: path.join(__dirname, "/public/index.html"),
     }),
